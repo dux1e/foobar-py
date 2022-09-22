@@ -1,10 +1,11 @@
 
 def solution(l,t):
     n = len(l)
+    tri = int((n*(n+1)/2))
     i = 0
     j = 1
     p = 1
-    while True:
+    for q in range(tri):
         # print(sum(l[i:j:]))
         # print('i',i,'j',j,l[i:j:])
         if sum(l[i:j:]) == t:
@@ -13,8 +14,9 @@ def solution(l,t):
             # print('i',i,'j',j)
             # print(l[i:j:])
             # print(sum(l[i:j:]))
+            # print( i,j-1 )
             if i != j-1:
-                print('true')
+                print( i,j-1 )
                 return i,j-1
         # print(l[i:j:])
         i = i + 1
@@ -30,7 +32,7 @@ def solution(l,t):
 if __name__ == '__main__':
     print(solution([1, 2, 3, 4], 15)) # -1,-1
     print(solution([4, 3, 10, 2, 8], 12)) # 2,3
-    print(solution([1,2,3,4],3)) # 0,2 curr
+    print(solution([1,2,3,4],3)) # 0,1 curr
     print(solution([1],3)) # -1,-1
     # These currently return
     # (-1, -1)
