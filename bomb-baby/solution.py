@@ -11,21 +11,28 @@
 # NOTE: Man starter med 1 mach bombe og 1 fach bombe
 
 def solution(x, y):
-    ms = 1
-    fs = 1
-    pass
+    M = 1; F = 1
+    cycles = x
+    if x > y:
+        cycles = x
+    for c in range(cycles):
+        pass
+    else:
+        return "impossible"
 
-def mach_cycle(x, y):
-    pass
+def M_cycle(m):
+    return m
 
-def facu_cycle(x, y):
-    pass
+def F_cycle(f):
+    return f
 
 if __name__ == '__main__':
     print(solution('4', '7')) # 4
-    # 1 
-    # 2 
-    # 3 
-    # 4 
+    # 0 M=1 F=1
+    # 1 1 2 M_cycle creates 1 F
+    # 2 1 3 M_cycle creates 1 F
+    # 3 4 3 F_cycle creates 3 M
+    # 4 4 7 M_cycle creates 4 F
     print(solution('2', '1')) # 1
-    # 1 facu_cycle creates 1 mach bomb = 2 mach 1 facu 
+    # 0 M=1 F=1
+    # 1 2 1 F_cycle creates 1 M 
