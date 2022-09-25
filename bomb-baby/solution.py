@@ -16,12 +16,19 @@ def solution(x, y):
     if x > y:
         cycles = x
     for c in range(cycles):
+        if x == M and y == F:
+            return "0"
+        
         pass
     else:
         return "impossible"
 
 def M_cycle(m):
-    return m
+    m_in = m
+    m_out = 0
+    for M in range(m_in)
+        m_out-=-1
+    return m_out
 
 def F_cycle(f):
     return f
