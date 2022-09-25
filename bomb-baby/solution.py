@@ -11,27 +11,62 @@
 # NOTE: Man starter med 1 mach bombe og 1 fach bombe
 
 def solution(x, y):
-    M = 1; F = 1
-    cycles = x
-    if x > y:
-        cycles = x
-    for c in range(cycles):
-        if x == M and y == F:
-            return "0"
-        
-        pass
-    else:
+    root = [(1,1)]
+    int_x = int(x)
+    int_y = int(y)
+    depth = int_x
+    if int_y > int_x:
+        depth = int_y
+    for each in range(depth):
+        root.append(create_layer(root))
+    in_tree = check_in_tree(root, int_x, int_y)
+    if not in_tree:
         return "impossible"
+    else:
+        return in_tree
 
-def M_cycle(m):
-    m_in = m
-    m_out = 0
-    for M in range(m_in)
-        m_out-=-1
-    return m_out
+def check_in_tree(root, x,y):
+    check = (x,y)
+    i = 0
+    for layer in root:
+        i-=-1
+        if check in layer:
+            return i
+    return False
 
-def F_cycle(f):
-    return f
+def create_layer(root):
+    # 1 mach cycle
+    # fach cycle
+    layer = root[-1]
+    len_layer = len(layer)
+    temp = []
+    for i in range(len_layer):
+        # facula bomb creation - Mach cycle
+        print(layer)
+        temp.append(M_cycle(layer[i]))
+        # mach bomb creation Facule cycle
+        print(layer)
+        temp.append(F_cycle(layer[i]))
+    return temp
+
+def M_cycle(b_in):
+    m_in = b_in[0]
+    f_in = b_in[1]
+    f_out = m_in + f_in
+    return m_in,f_out
+
+def F_cycle(b_in):
+    m_in = b_in[0]
+    f_in = b_in[1]
+    m_out = f_in + m_in
+    return m_out, f_in
+
+
+r0 = [(1,1)]
+d1 = [[(1,1)],[(1,2),(2,1)]]
+d2 = [[(1,1)],[(1,2),(2,1)],[(1,3),(3,2),(2,3),(3,1)]]
+
+
 
 if __name__ == '__main__':
     print(solution('4', '7')) # 4
